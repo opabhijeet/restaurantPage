@@ -1,14 +1,16 @@
+import './menuStyle.css'
+
 function getCard(){
-    card = document.createElement('div');
+    const card = document.createElement('div');
     card.id= 'card';
 
-    pic = document.createElement('img');
+    const pic = document.createElement('img');
     pic.id = 'pic';
     card.appendChild(pic);
 
-    txt = document.createElement('div');
+    const txt = document.createElement('div');
     txt.id = 'txt';
-    txt.txtContent = 'Bahut badhiya khana hai. Kha lo sab.';
+    txt.innerHTML = 'Bahut badhiya khana hai. <br>Kha lo sab. <br>Pet bhar k khao.';
     card.appendChild(txt);
 
     return card;
@@ -17,9 +19,12 @@ function fillMenu(){
     const content = document.getElementById('content');
     content.innerHTML = '';
 
-    content.setAttribute('style', 'display:flex; flex-wrap:wrap; justify-content:space-around; align-items:center;');
+    const menuItems = document.createElement('div');
+    menuItems.id = 'menuItems';
+    content.appendChild(menuItems);
 
     for(let i=0; i<6; i++){
-        content.appendChild(getCard());
+        menuItems.appendChild(getCard());
     }
 }
+export default fillMenu;
